@@ -55,18 +55,3 @@ function getPath(node) {
     .join(node.parent.relativeDirectory, node.parent.name === 'index' ? '/' : node.parent.name)
     .replace(/\\/g, '/'); // Windows paths to forward slashes
 }
-
-exports.onCreateWebpackConfig = ({ actions: { setWebpackConfig } }) => {
-  setWebpackConfig({
-    module: {
-      rules: [
-        {
-          test: /\.worker\.js$/,
-          use: {
-            loader: 'worker-loader'
-          }
-        }
-      ]
-    }
-  });
-};

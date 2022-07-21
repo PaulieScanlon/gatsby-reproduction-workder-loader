@@ -1,22 +1,28 @@
-import React, { useEffect, useRef } from 'react';
-import SearchWorker from 'worker-loader!./search.worker.js';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
+
+import useSearch from '../hooks/use-search';
 
 const Search = () => {
-  const workerRef = useRef();
+  const [query, setQuery] = useState('');
+  const results = useSearch(query);
 
-  useEffect(() => {
-    const worker = new SearchWorker();
-
-    return () => {
-      workerRef.current.terminate();
-    };
-  }, []);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    setQuery(event.target.elements.search.value);
+  };
 
   return (
-    <div>
-      <label htmlFor="search"></label>
-      <input id="search" placeholder="Search" />
-    </div>
+    <Fragment>
+      <form onSubmit={onSubmit}>
+        <label>
+          <input name="search" placeholder="Search" />
+        </label>
+        <button type="submit">Search</button>
+      </form>
+      <pre>{JSON.stringify(query, null, 2)}</pre>
+      <p>Results</p>
+      <p>{JSON.stringify(results, null, 2)}</p>
+    </Fragment>
   );
 };
 

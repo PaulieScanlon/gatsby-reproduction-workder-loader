@@ -17,8 +17,9 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.0.21",
     "@mdx-js/react": "^1.0.21",
+    "fuse.js": "^3.4.5",
     "gatsby-plugin-mdx": "^3.19.0",
     "gatsby-source-filesystem": "^4.19.0",
-    "worker-loader": "^3.0.8"
+    "lodash.debounce": "4.0.8"
   }
 }
