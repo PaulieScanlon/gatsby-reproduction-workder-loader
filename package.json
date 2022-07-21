@@ -1,0 +1,19 @@
+{
+  "name": "gatsby-reproduction-worker-loader",
+  "private": true,
+  "repository": {
+    "url": "https://github.com/PaulieScanlon/gatsby-reproduction-worker-loader",
+    "directory": "theme"
+  },
+  "scripts": {
+    "develop": "npm run develop -w site",
+    "build": "npm run build -w site",
+    "serve": "npm run serve -w site",
+    "clean": "npm run clean -w site",
+    "test": "npm test -w theme"
+  },
+  "workspaces": [
+    "theme",
+    "site"
+  ]
+}
