@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
-import SearchWorker from 'worker-loader!./search.worker.js';
 
 import { list } from '../test-data/list-data';
 
@@ -17,7 +16,7 @@ const useSearch = (query) => {
   }, []);
 
   useEffect(() => {
-    const worker = new SearchWorker();
+    const worker = new Worker(new URL('./search.worker.js', import.meta.url));
     worker.addEventListener('message', handleSearchResults);
     worker.postMessage({ list });
     workerRef.current = worker;

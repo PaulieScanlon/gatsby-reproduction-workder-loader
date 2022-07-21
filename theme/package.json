@@ -20,7 +20,6 @@
     "fuse.js": "^3.4.5",
     "gatsby-plugin-mdx": "^3.19.0",
     "gatsby-source-filesystem": "^4.19.0",
-    "lodash.debounce": "4.0.8",
-    "worker-loader": "^3.0.8"
+    "lodash.debounce": "4.0.8"
   }
 }
